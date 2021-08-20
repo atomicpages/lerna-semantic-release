@@ -1,30 +1,36 @@
-var async = require('async');
+var async = require("async");
 
-var log = require('./log');
-var bindTasks = require('./bind-tasks');
+var log = require("./log");
+var bindTasks = require("./bind-tasks");
 
-module.exports = function forEachPackage (tasks, options, done) {
+module.exports = function forEachPackage(tasks, options, done) {
   var extraContext = (options && options.extraContext) || {};
   var asyncType = (options && options.asyncType) || async.series;
   var packages = options.allPackages;
 
-  var packageLocations = packages.map(function (pkg) {
-    return pkg.location;
-  });
+  packages.then((pkgs) => {
+    var packageLocations = pkgs.map(function (pkg) {
+      return pkg.location;
+    });
 
-  var tasksToRunInEachPackage = packageLocations.map(function (packagePath) {
-    return function (next) {
-      var contextBoundTasks = bindTasks(tasks, Object.assign({}, extraContext, {packagePath: packagePath}), packagePath);
+    var tasksToRunInEachPackage = packageLocations.map(function (packagePath) {
+      return function (next) {
+        var contextBoundTasks = bindTasks(
+          tasks,
+          Object.assign({}, extraContext, { packagePath: packagePath }),
+          packagePath
+        );
 
-      asyncType(contextBoundTasks, function (err) {
-        err && log.error(err);
-        next();
-      });
-    }
-  });
+        asyncType(contextBoundTasks, function (err) {
+          err && log.error(err);
+          next();
+        });
+      };
+    });
 
-  async.series(tasksToRunInEachPackage, function (err) {
-    err && log.error(err);
-    done && done();
+    async.series(tasksToRunInEachPackage, function (err) {
+      err && log.error(err);
+      done && done();
+    });
   });
 };

@@ -8,8 +8,8 @@
     "lerna-semantic-release-utils": "^4.0.0"
   },
   "engines": {
-    "node": ">=4",
-    "npm": ">=3"
+    "node": ">=10.18.0",
+    "npm": ">=6"
   },
   "license": "MIT",
   "main": "index.js",

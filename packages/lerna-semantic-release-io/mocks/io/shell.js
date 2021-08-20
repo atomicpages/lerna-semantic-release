@@ -1,10 +1,10 @@
 var sinon = require('sinon');
-var sandbox = sinon.sandbox;
+var sandbox = sinon.createSandbox(sinon.defaultConfig);
 var makeMockTask = require('../make-mock-task');
 
 module.exports = {
   mock: function () {
-    sandbox.create();
+    // sandbox.createStubInstance();
   },
   restore: function () {
     module.exports.touch.resetTask();

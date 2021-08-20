@@ -9,8 +9,8 @@
     "lerna-semantic-release-utils": "^4.0.0"
   },
   "engines": {
-    "node": ">=4",
-    "npm": ">=3"
+    "node": ">=10.18.0",
+    "npm": ">=6"
   },
   "license": "MIT",
   "main": "index.js",
@@ -27,6 +27,6 @@
   "version": "4.2.1",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^3.0.2"
+    "mocha": "^3.5.3"
   }
 }

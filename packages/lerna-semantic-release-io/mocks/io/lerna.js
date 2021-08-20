@@ -1,4 +1,4 @@
-var path = require('path');
+var path = require("path");
 
 module.exports = {
   _state: {},
@@ -11,12 +11,14 @@ module.exports = {
   getAllPackages: function () {
     var state = module.exports._state;
     var names = Object.keys(state.versions);
-    return names.map(function (name) {
+    var pkgs = names.map(function (name) {
       return {
         name: name,
-        location: path.join('packages', name),
-        version: state.versions[name]
+        location: path.join("packages", name),
+        version: state.versions[name],
       };
     });
-  }
+
+    return Promise.resolve(pkgs);
+  },
 };

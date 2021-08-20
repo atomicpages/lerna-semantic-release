@@ -1,5 +1,5 @@
 var sinon = require('sinon');
-var sandbox = sinon.sandbox.create();
+var sandbox = sinon.createSandbox(sinon.defaultConfig);
 var makeMockTask = require('../make-mock-task');
 
 module.exports = {

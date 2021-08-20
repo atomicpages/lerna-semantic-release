@@ -1,5 +1,5 @@
 var sinon = require('sinon');
-var sandbox = sinon.sandbox;
+var sandbox = sinon.createSandbox(sinon.defaultConfig);
 var makeMockTask = require('../make-mock-task');
 var mockery = require('mockery');
 var stream = require('stream');
@@ -36,7 +36,7 @@ module.exports = {
     });
     mockGitLog = gitState.log;
     module.exports._state = gitState;
-    sandbox.create();
+    // sandbox.createStubInstance();
   },
   restore: function () {
     mockery.disable();
