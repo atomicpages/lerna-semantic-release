@@ -8,10 +8,10 @@ module.exports = {
   },
   restore: function () {
     module.exports.touch.resetTask();
-    module.exports.pushdSync.reset();
-    module.exports.popdSync.reset();
-    module.exports.lnSync.reset();
-    module.exports.unlinkSync.reset();
+    module.exports.pushdSync.resetHistory();
+    module.exports.popdSync.resetHistory();
+    module.exports.lnSync.resetHistory();
+    module.exports.unlinkSync.resetHistory();
   },
   pushdSync: sandbox.spy(),
   popdSync: sandbox.spy(),

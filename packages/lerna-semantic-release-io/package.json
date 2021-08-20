@@ -14,7 +14,7 @@
     "mockery": "^2.1.0",
     "semantic-release": "^17.4.5",
     "shelljs": "^0.8.4",
-    "simple-git": "~1.48.0",
+    "simple-git": "^2.44.0",
     "sinon": "^11.1.2"
   },
   "peerDependencies": {

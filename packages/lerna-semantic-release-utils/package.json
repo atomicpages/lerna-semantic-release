@@ -6,8 +6,8 @@
   },
   "dependencies": {
     "async": "^3.2.1",
-    "shelljs": "^0.7.8",
-    "winston": "^2.4.5"
+    "shelljs": "^0.8.4",
+    "winston": "^3.3.3"
   },
   "engines": {
     "node": ">=10.18.0",

@@ -1,12 +1,15 @@
-if (typeof window !== 'undefined') {
-  module.exports = window.console;  // eslint-disable-line no-undef
+if (typeof window !== "undefined") {
+  module.exports = window.console; // eslint-disable-line no-undef
 } else {
-  var winston = require('winston');
-  winston.cli();
-  var logger = new winston.Logger({
+  var winston = require("winston");
+
+  var logger = winston.createLogger({
     transports: [
-      new (winston.transports.Console)()
-    ]
+      new winston.transports.Console({
+        format: winston.format.simple(),
+      }),
+    ],
   });
-  module.exports = logger.cli();
+
+  module.exports = logger;
 }

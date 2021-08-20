@@ -11,8 +11,8 @@ module.exports = function makeMockTask (sandbox) {
 
   spiedMockTask.innerTask = spiedInnerTask;
   spiedMockTask.resetTask = function () {
-    spiedInnerTask.reset();
-    spiedMockTask.reset();
+    spiedInnerTask.resetHistory();
+    spiedMockTask.resetHistory();
   };
 
   return spiedMockTask;
