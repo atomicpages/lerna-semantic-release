@@ -34,17 +34,18 @@
     "commitizen": "^4.2.4",
     "cz-lerna-changelog": "^2.0.3",
     "eslint": "^7.32.0",
+    "husky": "^7.0.1",
     "lerna": "^4.0.0",
     "lerna-semantic-release": "^9.0.1",
     "prettier": "^2.3.2",
-    "validate-commit-msg": "^2.11.1",
-    "husky": "^0.13.1"
+    "validate-commit-msg": "^2.11.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/atlassian/lerna-semantic-release.git"
   },
   "scripts": {
+    "prepare": "husky install",
     "commit": "git-cz",
     "semantic-release": "lerna-semantic-release pre && lerna-semantic-release post && lerna-semantic-release perform",
     "postinstall": "lerna bootstrap",
